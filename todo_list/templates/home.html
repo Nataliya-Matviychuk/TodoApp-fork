@@ -7,9 +7,16 @@
 	<section class="feature">
 		<div class="feature-content">
 			<h1>Todo</h1>
-			<p>Todo helps you more focus, either work or play.</p>	
-			<a class="btn btn-primary cta" href="{% url 'register' %}">Get Started</a>
+			<p>Todo helps you more focus, either work or play.</p>
+			<p>Create your favorite tasks here and become more motivated.</p>
+
+			{% if request.user.is_authenticated %}
+			     <a class="btn btn-primary cta" href="{% url 'task-create' %}">Create Task</a>
+            {% else %}
+			    <a class="btn btn-primary cta" href="{% url 'register' %}">Get Started</a>
+            {% endif %}
+
 		</div>
-        <img src="{% static 'images/feature.jpg' %}" alt="" class="feature-image">
+        <img src="{% static 'images/feature.jpg' %}" alt="feature-image" class="feature-image">
 	</section>
 {%endblock content%}
