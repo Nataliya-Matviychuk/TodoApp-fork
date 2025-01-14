@@ -30,7 +30,7 @@ SECURE_HSTS_PRELOAD = config('SECURE_HSTS_PRELOAD')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG')
+DEBUG = False
 
 ALLOWED_HOSTS = ['todoapp-nazar2022.pythonanywhere.com']
 
@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todo',
-    'users'
+    'users',
 ]
 
 MIDDLEWARE = [
