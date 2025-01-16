@@ -3,7 +3,15 @@
 {% block content %}
 
 <div class="center">
-	<h2>My Todo List</h2>
+	{% if tasks %}
+		<div class="tasks-heading">
+			<i class="bi bi-journal-text"></i>
+			<h2>My Todo List</h2>
+			<i class="bi bi-journal-text"></i>
+		</div>
+	{% else %}
+			<h2>My Todo List</h2>
+	{% endif %}
 	{% if tasks %}
 	    <ul class="tasks">
 	    	{% for task in tasks %}

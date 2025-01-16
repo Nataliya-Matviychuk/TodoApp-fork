@@ -1,4 +1,4 @@
-{%load static %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,6 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'css/style-frontend.css' %}" />
+        <script src="{% static 'js/messages.js' %}"></script>
         <title>Todo List</title>
     </head>
 
@@ -18,12 +19,10 @@
                 	<a href="{%url 'home' %}" class="nav-link"><i class="bi bi-house-fill"></i>  Home</a>
                     {% if request.user.is_authenticated %}
                         <style>
-
                             @media (max-width: 516px) {
 
                             .logo {
                                 display: none
-
                                 }
                             }
 
@@ -37,14 +36,12 @@
                                 .nav-link {
                                     display: none;
                                 }
-
                             }
-
                         </style>
 
                 	    <a href="{%url 'tasks' %}"><i class="bi bi-list-task"></i>  My Tasks</a>
                         <a href="{% url 'task-create' %}"><i class="bi bi-plus-circle"></i>  Create Task</a>
-                        <a href="{% url 'profile' %}">Hi {{request.user | title}}</a>
+                        <a href="{% url 'profile' %}"><i class="bi bi-person-badge"></i> {{request.user | title}}</a>
                         <a href="{% url 'logout' %}" class="btn btn-outline">Logout</a>
                     {% else %}
                         <a href="{% url 'login' %}" class="btn btn-outline">Login</a>
@@ -59,18 +56,27 @@
                 {% if messages %}
                     {% for message in messages %}
                         <div class="alert alert-{{message.tags}}">
-                            {{message}}
+                           Hi {{request.user.username}}, {{message}}
                         </div>
                     {% endfor %}
                 {% endif %}
 
                 {% block content %}
+
                 {% endblock content %}
             </div>
         </main>
+
+        <div class="container social-icons">
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+            <a href="#"><i class="bi bi-github"></i></a>
+        </div>
+
         <footer class="footer">
             <div class="container">
-               <p>&copy; Copyright {% now "Y" %} by <a href="https://www.pythontutorial.net">Python Tutorial and Nazar Pichak</a></p>
+               <p>&copy; Copyright {% now "Y" %} by <a href="https://www.linkedin.com/in/nazar-pichak-ua/">Nazar Pichak</a></p>
             </div>
         </footer>
     </body>

@@ -51,6 +51,7 @@ textarea:focus {
   outline: 0;
   box-shadow: 0 0 0 0.125rem rgb(238, 57, 76, 25%);
 }
+
 body {
   font-family: 'Dosis', sans-serif;
   font-size: 1rem;
@@ -63,6 +64,7 @@ h1 {
   font-size: 2rem;
   line-height: 1.5;
 }
+
 h2 {
   font-size: 1.4rem;
 }
@@ -187,7 +189,38 @@ textarea {
   max-height: 7rem;
 }
 
+/* Social Icons */
+
+.social-icons {
+    width: 80%;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.4rem;
+}
+
+a i.bi.bi-instagram,
+a i.bi.bi-facebook,
+a i.bi.bi-linkedin,
+a i.bi.bi-github {
+    color: black !important;
+}
+
 /* Task list */
+
+.tasks-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 400px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+i.bi.bi-journal-text {
+    font-size: 1.4rem;
+}
 
 .tasks {
   list-style: none;
@@ -361,7 +394,7 @@ textarea {
 
 
 @media (max-width: 430px) {
-    .card, .tasks {
+    .card, .tasks, .tasks-heading {
         min-width: 80vw;
     }
 }

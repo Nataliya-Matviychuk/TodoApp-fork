@@ -21,18 +21,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
-SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT')
-SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE')
-SECURE_HSTS_SECONDS = config('SECURE_HSTS_SECONDS')
-SECURE_HSTS_INCLUDE_SUBDOMAINS = config('SECURE_HSTS_INCLUDE_SUBDOMAINS')
-CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE')
-SECURE_HSTS_PRELOAD = config('SECURE_HSTS_PRELOAD')
+
+# UNCOMMENT IN THE PRODUCTION MODE !!!
+# SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT')
+# SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE')
+# SECURE_HSTS_SECONDS = config('SECURE_HSTS_SECONDS')
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = config('SECURE_HSTS_INCLUDE_SUBDOMAINS')
+# CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE')
+# SECURE_HSTS_PRELOAD = config('SECURE_HSTS_PRELOAD')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['todoapp-nazar2022.pythonanywhere.com']
+# UNCOMMENT IN THE PRODUCTION MODE !!!
+# ALLOWED_HOSTS = ['todoapp-nazar2022.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -125,7 +129,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/nazar2022/web/TodoApp/todo_list/static/'
+
+# UNCOMMENT IN THE PRODUCTION MODE !!!
+# STATIC_ROOT = '/home/nazar2022/web/TodoApp/todo_list/static/'
+
+# UNCOMMENT IN THE DEVELOPMENT MODE!!!
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
