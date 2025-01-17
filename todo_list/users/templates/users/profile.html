@@ -5,7 +5,7 @@
         <form method="post" enctype="multipart/form-data" class="card">
             {% csrf_token %}
             {% if user.profile %}
-            <img src="{{user.profile.avatar.url}}" alt="{{ user.username }}" class="avatar" accept=".jpg,.jpeg,.png"/>
+                <img src="{{user.profile.avatar.url}}" alt="{{ user.username }}" class="avatar" accept=".jpg,.jpeg,.png"/>
             {% endif %}
                     
             <h2 class="text-center">{{ user.username | title }}</h2>

@@ -32,7 +32,7 @@ SECURE_HSTS_PRELOAD = config('SECURE_HSTS_PRELOAD')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # UNCOMMENT IN THE PRODUCTION MODE !!!
 ALLOWED_HOSTS = ['todoapp-nazar2022.pythonanywhere.com']
