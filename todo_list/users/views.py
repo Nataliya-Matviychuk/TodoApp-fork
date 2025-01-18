@@ -24,7 +24,7 @@ class RegisterView(FormView):
         return super(RegisterView, self).form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, 'Enter correct passwords and email')
+        messages.error(self.request, 'Username must contain letters, digits and @/./+/-/_ only. Or enter correct passwords and email.')
         return self.render_to_response(self.get_context_data(form=form))
     
     
@@ -61,7 +61,7 @@ class ProfileView(LoginRequiredMixin, View):
             return redirect('profile')
         else:
             context = {'user_form': user_form, 'profile_form': profile_form}
-            messages.error(request, 'error updating your profile')
+            messages.error(request, f'Hi {request.user}, write letters, digits and @/./+/-/_ only.')
             return render(request, 'users/profile.html', context)
 
 
