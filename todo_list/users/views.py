@@ -1,19 +1,20 @@
 from django.contrib.auth.views import LoginView
-from django.contrib import messages
 from django.urls import reverse_lazy
+from django.contrib import messages
+from django.views.generic.edit import FormView
+
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 
 from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
-from django.views.generic.edit import FormView
 from django.contrib.auth import login
 
 
 class RegisterView(FormView):
     template_name = 'users/register.html'
     form_class = RegisterForm
-    redirect_athenticated_user = True
+    redirect_authenticated_user = True
     success_url = reverse_lazy('tasks')
 
     def form_valid(self, form):
