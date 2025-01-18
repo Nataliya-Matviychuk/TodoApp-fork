@@ -52,7 +52,7 @@ class TaskCreate(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        messages.success(self.request, 'The task was created successfully')
+        messages.success(self.request, f'Hi {self.request.user}, the task was created successfully')
         return super(TaskCreate, self).form_valid(form)
     
     def get_queryset(self):
@@ -67,7 +67,7 @@ class TaskUpdate(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        messages.success(self.request, 'The task was updated successfully')
+        messages.success(self.request, f'Hi {self.request.user}, the task was updated successfully')
         return super(TaskUpdate, self).form_valid(form)
     
     def get_queryset(self):
@@ -81,7 +81,7 @@ class TaskDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('tasks')
 
     def form_valid(self, form):
-        messages.success(self.request, 'The Task was deleted successfully')
+        messages.success(self.request, f'Hi {self.request.user}, the task was deleted successfully')
         return super(TaskDelete, self).form_valid(form)
     
     def get_queryset(self):

@@ -1,5 +1,7 @@
+from tkinter.font import names
+
 from django.urls import path
-from .views import LogInView, RegisterView, ProfileView
+from .views import LogInView, RegisterView, ProfileView, ProfileDeleteView
 
 from django.contrib.auth.views import (
     LogoutView,
@@ -30,6 +32,7 @@ urlpatterns = [
     # Template: 'users/password_reset_complete.html'
     path('password-reset-complete/', PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'), name='password_reset_complete'),
     path('profile/', ProfileView.as_view(), name='profile'),
+    path('profile/delete/', ProfileDeleteView.as_view(), name='profile_delete'),
 ]
 
 
