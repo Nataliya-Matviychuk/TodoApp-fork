@@ -205,6 +205,9 @@ textarea {
 }
 
 /* Social Icons */
+a i.bi.bi-person-badge {
+    font-size: 1.7rem;
+}
 
 .social-icons {
     width: 80%;
@@ -415,9 +418,13 @@ i.bi.bi-journal-text {
 }
 
 
-@media (max-width: 363px) {
-    .nav-link {
+@media (max-width: 364px) {
+    .logo {
         display: none;
+    }
+
+    a i.bi.bi-house-fill {
+        font-size: 1.7rem;
     }
 }
 

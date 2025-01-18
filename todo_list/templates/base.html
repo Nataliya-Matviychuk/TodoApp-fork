@@ -16,7 +16,7 @@
             <div class="container">
                 <a href="{%url 'home'%}" class="logo">Todo</a>
                 <nav class="nav">
-                	<a href="{%url 'home' %}" class="nav-link"><i class="bi bi-house-fill"></i>  Home</a>
+                	<a href="{%url 'home' %}"><i class="bi bi-house-fill"></i>  Home</a>
                     {% if request.user.is_authenticated %}
                         <style>
                             @media (max-width: 516px) {
@@ -32,7 +32,7 @@
                                 }
                             }
 
-                            @media (max-width: 390px) {
+                            @media (max-width: 363px) {
                                 .nav-link {
                                     display: none;
                                 }
@@ -40,8 +40,8 @@
                         </style>
 
                 	    <a href="{%url 'tasks' %}"><i class="bi bi-list-task"></i>  My Tasks</a>
-                        <a href="{% url 'task-create' %}"><i class="bi bi-plus-circle"></i>  Create Task</a>
-                        <a href="{% url 'profile' %}"><i class="bi bi-person-badge"></i> {{request.user | title}}</a>
+                        <a href="{% url 'task-create' %}" class="nav-link"><i class="bi bi-plus-circle"></i>  Create Task</a>
+                        <a href="{% url 'profile' %}"><i class="bi bi-person-badge"></i></a>
                         <a href="{% url 'logout' %}" class="btn btn-outline">Logout</a>
                     {% else %}
                         <a href="{% url 'login' %}" class="btn btn-outline">Login</a>
