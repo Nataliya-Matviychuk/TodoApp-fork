@@ -12,9 +12,11 @@
   --color-warning: #ffc900;
   --color-info: #02a2b9;
   --color-success: #1ba345;
-  --color-input: #00d1b2;
+  --color-input: #00cad1;
+  --color-cell: rgba(187, 233, 219, 0.5);
    --border-radius: 5px;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -102,13 +104,10 @@ a:hover {
 	flex-basis: 100%;
 }
 
-
-
 .nav a:nth-last-child(2) {
 	margin-left: auto;
 	font-weight: bold;
 }
-
 
 .logo {
   padding: 0.5rem;
@@ -118,28 +117,76 @@ a:hover {
   font-weight: bold;
   text-transform: uppercase;
 }
+
 .logo:hover {
   text-decoration: none;
 }
+
 /* feature */
 .feature {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
+
 .feature-content {
   width: 50%;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  border: solid 1px var(--color-light);
+  box-shadow: rgb(11 43 158 / 15%) 0px 6px 20px -6px;
+  border-radius: var(--border-radius);
 }
 .feature-content .cta {
   margin-top: 1rem;
-  align-self: flex-start;
 }
+
 .feature-image {
   width: 50%;
   height: auto;
 }
+
+/* Calendar */
+
+.calendar-heading {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  border-radius: var(--border-radius);
+  margin-bottom: 5px;
+}
+
+table, td, th {
+  border: 0.01px solid rgb(90, 87, 87);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+
+th {
+  background-color: var(--color-secondary);
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  border: 0.5px solid rgb(90, 87, 87);
+}
+
+/* form */
 
 .password-reset {
   border: solid 1px var(--color-light);
@@ -156,8 +203,6 @@ a:hover {
     margin-bottom: auto;
 }
 
-/* form */
-
 .card {
   border: solid 1px var(--color-light);
   padding: 1rem;
@@ -166,7 +211,6 @@ a:hover {
   min-width: 400px;
 }
 
-/* form */
 form > * {
   display: block;
   margin-bottom: 0.5rem;
@@ -210,10 +254,10 @@ a i.bi.bi-person-badge {
 }
 
 .social-icons {
-    width: 80%;
-    margin-top: auto;
+    width: 30%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     font-size: 1.4rem;
 }
 
@@ -311,6 +355,14 @@ i.bi.bi-journal-text {
   border-top: solid 1px var(--color-light);
 }
 
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+
+}
+
 .btn {
   padding: 0.25rem 0.75rem;
   border-radius: var(--border-radius);
@@ -383,7 +435,9 @@ i.bi.bi-journal-text {
   min-height: 70vh;
 }
 
-@media (max-width: 576px) {
+
+
+@media (max-width: 776px) {
 
   .brand {
     order: 1;
@@ -391,9 +445,9 @@ i.bi.bi-journal-text {
 
   .feature {
     flex-direction: column;
+    align-items: center;
   }
 
-  .feature-content,
   .feature-image {
     width: 100%;
   }
@@ -404,9 +458,34 @@ i.bi.bi-journal-text {
   .feature-content {
     order: 2;
     text-align: center;
+    height: 250px;
+    width: 351px;
   }
   .feature-content .cta {
     align-self: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+  }
+  
+  .social-icons {
+    order: 1;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .copy {
+    order: 2;
+    width: 100%;
+  }
+
+  .calendar-container {
+    margin: auto;
+  }
+
+  table {
+    margin-bottom: 30px;
   }
 }
 
@@ -426,8 +505,16 @@ i.bi.bi-journal-text {
     a i.bi.bi-house-fill {
         font-size: 1.7rem;
     }
-}
 
+    td, th {
+      width: 40px !important;
+      height: 40px !important;
+    }
+    
+    .feature-content {
+      width: 100%;
+    }
+}
 
 
 
