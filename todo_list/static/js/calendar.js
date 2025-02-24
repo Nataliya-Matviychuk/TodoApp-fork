@@ -59,22 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
     calendarContainer.appendChild(currentMonthYear);
     calendarContainer.appendChild(tableForMonth);
 
-    let heading = document.createElement('h1');
-    heading.textContent = "Your Calendar";
-
-    let paragraphOne = document.createElement('p');
-    paragraphOne.textContent = 'Our calendar helps you to manage your tasks and events.';
-
-    let paragraphTwo = document.createElement('p');
-    paragraphTwo.textContent = 'It is easy to use and you can see your tasks and events in a glance.';
-
-    let featureContent = document.createElement('div');
-    featureContent.setAttribute('class', 'feature-content');
-    featureContent.appendChild(heading);
-    featureContent.appendChild(paragraphOne); 
-    featureContent.appendChild(paragraphTwo);
-
     let calendarElement = document.getElementById('calendar');
     calendarElement.appendChild(calendarContainer);
-    calendarElement.appendChild(featureContent);
 });

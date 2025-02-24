@@ -19,7 +19,11 @@
         <img src="{% static 'images/feature.jpg' %}" alt="feature-image" class="feature-image">
 	</section>
 
-	<section id="calendar" class="feature">
-		
+	<section id="calendar" class="feature feature-reverse">
+		<div class="feature-content">
+			<h1>{% if request.user.is_authenticated %}👋 {{request.user}}'s Calendar {% else %}👋 Our Calendar{% endif %}</h1>
+			<p>Todo provides a calendar to help you manage your tasks.</p>
+			<p>View your tasks by day, week, month, or year.</p>
+		</div>
 	</section>
 {%endblock content%}
