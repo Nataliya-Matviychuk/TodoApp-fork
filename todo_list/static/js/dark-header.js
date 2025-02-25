@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => { 
     const header = document.getElementById('header');
-    const primaryLinks = Array.from(document.getElementsByClassName('nav-link'));
+    const primaryLinks = document.querySelectorAll('.nav-link');
     const logo = document.getElementById('logo');
 
     document.addEventListener('scroll', () => {

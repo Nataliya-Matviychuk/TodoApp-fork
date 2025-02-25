@@ -11,44 +11,52 @@ document.addEventListener("DOMContentLoaded", function () {
     let daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
     let tableForMonth = document.createElement('table');
-    let header = document.createElement('tr');
+    let tableHeader = document.createElement('thead');
+    let tableBody = document.createElement('tbody');
+    let tableFooter = document.createElement('tfoot');
+
+    let headerRow = document.createElement('tr');
 
     for (let i = 0; i < 7; i++) {
-        let cell = document.createElement('th');
-        cell.textContent = daysOfWeek[i];
-        header.appendChild(cell);
+        let headerCell = document.createElement('th');
+        headerCell.textContent = daysOfWeek[i];
+        headerRow.appendChild(headerCell);
     }
 
-    tableForMonth.appendChild(header);
+    tableHeader.appendChild(headerRow);
+    tableForMonth.appendChild(tableHeader);
 
     for (let i = 1; i <= 42; i++) {
 
         if (i % 7 === 1) {
-            var row = document.createElement('tr');
-            tableForMonth.appendChild(row);
+            var bodyRow = document.createElement('tr');
+            tableBody.appendChild(bodyRow);
+            tableForMonth.appendChild(tableBody);
         }
 
-        let cell = document.createElement('td');
+        let bodyCell = document.createElement('td');
 
         if (i >= firstDayOfMonth && i < daysInMonth + firstDayOfMonth) {
-            cell.textContent = i - firstDayOfMonth + 1;
-            if (cell.textContent == currentDay) {
-                cell.style.backgroundColor = "#ee394c";
-                cell.style.color = '#ffffff';
+            bodyCell.textContent = i - firstDayOfMonth + 1;
+            if (bodyCell.textContent == currentDay) {
+                bodyCell.style.backgroundColor = "#ee394c";
+                bodyCell.style.color = '#ffffff';
             }
         } else {
             let prevMonthDays = new Date(currentYear, currentMonth, 0).getDate();
             if (i < firstDayOfMonth) {
-                cell.textContent = prevMonthDays - (firstDayOfMonth - i - 1);
-                cell.style.backgroundColor = 'rgba(187, 233, 219, 0.5)';
+                bodyCell.textContent = prevMonthDays - (firstDayOfMonth - i - 1);
+                bodyCell.style.backgroundColor = 'rgba(187, 233, 219, 0.5)';
             } else {
-                cell.textContent = i - daysInMonth - firstDayOfMonth + 1;
-                cell.style.backgroundColor = 'rgba(187, 233, 219, 0.5)';
+                bodyCell.textContent = i - daysInMonth - firstDayOfMonth + 1;
+                bodyCell.style.backgroundColor = 'rgba(187, 233, 219, 0.5)';
             }
         }
 
-        row.appendChild(cell);
+        bodyRow.appendChild(bodyCell);
     }
+
+    tableForMonth.appendChild(tableFooter);
 
     let currentMonthYear = document.createElement('h1');
     currentMonthYear.setAttribute('class', 'calendar-heading');
@@ -59,6 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
     calendarContainer.appendChild(currentMonthYear);
     calendarContainer.appendChild(tableForMonth);
 
-    let calendarElement = document.getElementById('calendar');
-    calendarElement.appendChild(calendarContainer);
+    let calendarSection = document.getElementById('calendar');
+
+    if (calendarSection) {
+        calendarSection.appendChild(calendarContainer);
+    }
 });
