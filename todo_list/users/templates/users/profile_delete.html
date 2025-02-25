@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="center">
-        <form method="post" class="card">
-            {% csrf_token %}
-            <h2>Delete Profile</h2>
-            <p>Are you sure that you want to delete
-                <strong>{{request.user.username}}</strong> profile?
-            </p>
-            <p class="form-buttons">
-                <input type="submit" value="Delete" class="btn btn-primary">
-                <a href="{% url 'profile' %}" class="btn btn-outline">Cancel</a>
-            </p>
-
-        </form>
-
-    </div>
-{% endblock content %}
+  <div class="center">
+    <form method="post" class="card">
+      {% csrf_token %}
+      <h2>Delete Profile</h2>
+      <p>
+        Are you sure that you want to delete
+        <strong>{{ request.user.username }}</strong> profile?
+      </p>
+      <p class="form-buttons">
+        <input type="submit" value="Delete" class="btn btn-primary" />
+        <a href="{% url 'profile' %}" class="btn btn-outline">Cancel</a>
+      </p>
+    </form>
+  </div>
+{% endblock %}
