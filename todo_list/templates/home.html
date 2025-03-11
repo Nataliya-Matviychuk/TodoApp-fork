@@ -20,13 +20,13 @@
 
   <section id="calendar" class="feature feature-reverse">
     <div class="feature-content">
-      <h1>
+      <h2>
         {% if request.user.is_authenticated %}
           👋 {{ request.user }}'s Calendar
         {% else %}
           👋 Our Calendar
         {% endif %}
-      </h1>
+      </h2>
       <p>Todo provides a calendar to help you manage your tasks.</p>
       <p>View your tasks by day, week, month, or year.</p>
     </div>

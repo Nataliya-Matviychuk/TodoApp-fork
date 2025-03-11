@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('header');
+    const header = document.querySelector('.header');
     const primaryLinks = document.querySelectorAll('.nav-link');
-    const logo = document.getElementById('logo');
+    const logo = document.querySelector('.logo');
 
     document.addEventListener('scroll', () => {
         if (window.scrollY > 10) {

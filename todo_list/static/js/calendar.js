@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let date = new Date();
-    let currentYear = date.getFullYear();
-    let currentMonth = date.getMonth();
-    let currentDay = date.getDate();
-    let daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    const date = new Date();
+    const currentYear = date.getFullYear();
+    const currentMonth = date.getMonth();
+    const currentDay = date.getDate();
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-    let firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+    const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
 
-    let months = [
+    const months = [
         "January",
         "February",
         "March",
@@ -21,14 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
         "November",
         "December",
     ];
-    let daysOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
-    let tableForMonth = document.createElement("table");
-    let tableHeader = document.createElement("thead");
-    let tableBody = document.createElement("tbody");
-    let tableFooter = document.createElement("tfoot");
+    const daysOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
-    let headerRow = document.createElement("tr");
+    const tableForMonth = document.createElement("table");
+    const tableHeader = document.createElement("thead");
+    const tableBody = document.createElement("tbody");
+    const tableFooter = document.createElement("tfoot");
+
+    const headerRow = document.createElement("tr");
 
     // Create the header row of the calendar
     for (let i = 0; i < 7; i++) {
@@ -74,18 +75,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tableForMonth.appendChild(tableFooter);
 
-    let currentMonthYear = document.createElement("h1");
+    const currentMonthYear = document.createElement("h2");
     currentMonthYear.setAttribute("class", "calendar-heading");
     currentMonthYear.textContent = `${months[currentMonth]}  ${currentYear}`;
 
-    let calendarContainer = document.createElement("div");
+    const calendarContainer = document.createElement("div");
     calendarContainer.setAttribute("class", "calendar-container");
     calendarContainer.appendChild(currentMonthYear);
     calendarContainer.appendChild(tableForMonth);
 
-    let calendarSection = document.getElementById("calendar");
+    const calendarSection = document.getElementById("calendar");
 
     if (calendarSection) {
         calendarSection.appendChild(calendarContainer);
+    } else {
+        console.warn("The calendar section is on the other pages.")
     }
 });

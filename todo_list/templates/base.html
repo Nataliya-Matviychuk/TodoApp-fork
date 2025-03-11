@@ -14,9 +14,9 @@
   </head>
 
   <body>
-    <header class="header" id="header">
+    <header class="header">
       <div class="container">
-        <a href="{% url 'home' %}" class="logo" id="logo">Todo</a>
+        <a href="{% url 'home' %}" class="logo">Todo</a>
         <nav class="nav">
           <a href="{% url 'home' %}" class="nav-link underline-animation"><i class="bi bi-house-fill"></i> Home</a>
           {% if request.user.is_authenticated %}
@@ -72,15 +72,14 @@
       <div class="footer-container container">
         <div class="copy">
           <p>
-            &copy; Copyright{% now 'Y' %}by <a href="https://www.linkedin.com/in/nazar-pichak-ua/" class="underline-animation" target="_blank">Nazar Pichak</a>
+            &copy; Copyright {% now 'Y' %} by <a href="https://www.linkedin.com/in/nazar-pichak-ua/" class="underline-animation" target="_blank"> Nazar Pichak</a>
           </p>
         </div>
 
         <div class="social-icons">
           <p>
             <strong>
-              <font class="social">Social</font>
-              <font class="media">Media</font>
+              <font class="social">Social</font><font class="media">Media</font>
             </strong>
           </p>
           <a href="https://www.instagram.com/__nazar_pichak___/" class="underline-animation" target="_blank"><i class="bi bi-instagram"></i></a>

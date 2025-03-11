@@ -2,26 +2,31 @@
 
 {% block content %}
   <div class="center">
-    {% if tasks %}
-      <div class="tasks-heading">
-        <i class="bi bi-journal-text"></i>
-        <h2>My Todo List</h2>
-        <i class="bi bi-journal-text"></i>
-      </div>
-      <ul class="tasks">
-        {% for task in tasks %}
-          <li>
-            <a href="{% url 'task' task.id %}" class="{% if task.completed %}completed{% endif %} underline-animation">{{ task.title }}</a>
-            <div class="task-controls">
-              <a href="{% url 'task-delete' task.id %}" class="underline-animation"><i class="bi bi-trash"></i></a>
-              <a href="{% url 'task-update' task.id %}" class="underline-animation"><i class="bi bi-pencil-square"></i></a>
-            </div>
-          </li>
+    <section class="task-list">
+      {% if tasks %}
+        <div class="tasks-heading">
+          <i class="bi bi-journal-text"></i>
+          <h2>My Todo List</h2>
+          <i class="bi bi-journal-text"></i>
+        </div>
+        <ul class="tasks">
+          {% for task in tasks %}
+            <li>
+              <a href="{% url 'task' task.id %}" class="{% if task.completed %}completed{% endif %} underline-animation">{{ task.title }}</a>
+              <div class="task-controls">
+                <a href="{% url 'task-delete' task.id %}" class="underline-animation"><i class="bi bi-trash"></i></a>
+                <a href="{% url 'task-update' task.id %}" class="underline-animation"><i class="bi bi-pencil-square"></i></a>
+              </div>
+            </li>
           {% endfor %}
-      </ul>
-    {% else %}
-      <h2>My Todo List</h2>
-      <p>🎉 Yay, you have no pending tasks!</p><a href="{% url 'task-create' %}" class="underline-animation">Create Task</a>
-    {% endif %}
+        </ul>
+      {% else %}
+        <h2>My Todo List</h2>
+        <p>🎉 Yay, you have no pending tasks!</p>
+        <p>
+          👉 Create a new task <a href="{% url 'task-create' %}" class="underline-animation">here</a> .
+        </p>
+      {% endif %}
+    </section>
   </div>
 {% endblock %}

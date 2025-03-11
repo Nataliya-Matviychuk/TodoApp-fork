@@ -80,7 +80,7 @@ h1 {
 }
 
 h2 {
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 }
 
 a {
@@ -114,7 +114,7 @@ a {
 	animation: identifier 0.9s ease-in-out;
 }
 
-.header>.container {
+.header > .container {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
@@ -258,13 +258,13 @@ table {
 	min-width: 400px;
 }
 
-form>* {
+form > * {
 	display: block;
 	margin-bottom: 0.5rem;
 }
 
-form>input[type="submit"],
-form>button {
+form > input[type="submit"],
+form > button {
 	margin: 1rem 0;
 }
 
@@ -333,6 +333,14 @@ a i.bi.bi-person-badge {
 
 /* Task list */
 
+.task-list {
+	min-width: 450px;
+	border: solid 1px var(--color-light);
+	padding: 7px;
+	border-radius: var(--border-radius);
+	box-shadow: var(--box-shadow);
+}
+
 .tasks-heading {
 	display: flex;
 	justify-content: space-between;
@@ -349,10 +357,7 @@ i.bi.bi-journal-text {
 
 .tasks {
 	list-style: none;
-	border: solid 1px var(--color-light);
 	padding: 1rem;
-	border-radius: var(--border-radius);
-	box-shadow: var(--box-shadow);
 	min-width: 400px;
 }
 
@@ -377,6 +382,10 @@ i.bi.bi-journal-text {
 
 .task-controls a {
 	color: var(--color-dark);
+}
+
+.task-controls a:hover {
+	color: var(--color-primary);
 }
 
 /* Task detail */
@@ -443,7 +452,6 @@ i.bi.bi-journal-text {
 
 .footer {
 	margin-top: auto;
-	padding: 0.5rem 0;
 	border-top: solid 1px var(--color-light);
 }
 
@@ -455,6 +463,7 @@ i.bi.bi-journal-text {
 	gap: 1rem;
 }
 
+/* Button */
 .btn {
 	padding: 0.25rem 0.75rem;
 	border-radius: var(--border-radius);
@@ -496,6 +505,13 @@ i.bi.bi-journal-text {
 	background-color: var(--color-success);
 	color: var(--color-white);
 }
+
+.btn-warning {
+	border: solid 1px var(--color-warning);
+	background-color: var(--color-warning);
+	color: var(--color-white);
+}
+
 
 /* Alert */
 .alert {
@@ -608,6 +624,13 @@ i.bi.bi-journal-text {
 		width: 60%;
 	}
 }
+
+@media (max-width: 490px) {
+	.task-list {
+		min-width: 0px;
+	}
+}
+
 
 @media (max-width: 430px) {
 
