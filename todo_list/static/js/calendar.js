@@ -1,4 +1,10 @@
-document.addEventListener("DOMContentLoaded", function () {
+/**
+ * Event listener for the DOMContentLoaded event.
+ * This event is fired when the initial HTML document has been completely loaded and parsed,
+ * without waiting for stylesheets, images, and subframes to finish loading. 
+*/
+
+document.addEventListener("DOMContentLoaded", () => {
     const date = new Date();
     const currentYear = date.getFullYear();
     const currentMonth = date.getMonth();

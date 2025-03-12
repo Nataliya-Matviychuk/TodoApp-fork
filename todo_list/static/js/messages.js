@@ -1,4 +1,9 @@
-// Wait until the DOM is fully loaded
+/**
+ * Event listener for the DOMContentLoaded event.
+ * This event is fired when the initial HTML document has been completely loaded and parsed,
+ * without waiting for stylesheets, images, and subframes to finish loading. 
+*/
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const alerts = document.querySelectorAll('.alert');
