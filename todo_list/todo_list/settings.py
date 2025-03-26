@@ -142,7 +142,14 @@ STATICFILES_DIRS = [BASE_DIR / 'static',]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Django standart settings for testing password reset functionality and send reset link into standard console
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Simple and easy approach for implementation password reset functionality via smtp.gmail.com server
+# and send reset link to valid user's email address. For details login to your google account and navigate into
+# https://myaccount.google.com/apppasswords, then create a new app and grab random generated password.
+# Paste it into django settings file or .env file.
+
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = config('EMAIL_HOST', default='localhost')
 EMAIL_PORT = config('EMAIL_PORT', cast=int )
