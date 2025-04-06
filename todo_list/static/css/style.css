@@ -24,7 +24,7 @@
 	--box-shadow: rgb(11 43 158 / 15%) 0px 6px 20px -6px;
 }
 
-/* ----------------------Keyframes-------------------------------------- */
+/*----------------------Keyframes---------------------- */
 @keyframes identifier {
 	0% {
 		opacity: 0;
@@ -56,7 +56,7 @@
 }
 
 
-/* ----------------------Reset default browser settings--------------------- */
+/*----------------------Reset default browser settings----------------------*/
 * {
 	margin: 0;
 	padding: 0;
@@ -64,7 +64,7 @@
 	text-rendering: optimizeLegibility;
 }
 
-/* ----------------------Layout---------------------------- */
+/*----------------------Layout----------------------*/
 html {
 	overflow-x: hidden;
 	scroll-behavior: smooth;
@@ -94,7 +94,7 @@ img {
 	max-width: 100%;
 	margin: auto;
 }
-
+/*----------------------Base style----------------------*/
 h1 {
 	font-size: 2rem;
 	line-height: 1.5;
@@ -123,7 +123,7 @@ a:visited {
 }
 
 
-/* ----------------------Header------------------------------ */
+/*----------------------Header----------------------*/
 .header>.container {
 	display: flex;
 	align-items: center;
@@ -193,7 +193,7 @@ ul .nav-6 {
 	color: var(--color-primary);
 }
 
-/*----------------------Overlay menu----------------------- */
+/*----------------------Overlay menu----------------------*/
 
 .overlay {
 	z-index: 1001 !important;
@@ -345,7 +345,7 @@ nav li a:active {
 
 
 
-/* ----------------------Feature---------------------- */
+/*----------------------Feature----------------------*/
 .feature {
 	display: flex;
 	justify-content: space-between;
@@ -377,7 +377,7 @@ nav li a:active {
 	height: auto;
 }
 
-/* ----------------------Calendar---------------------- */
+/*----------------------Tables----------------------*/
 .calendar-heading,
 .task-detail-heading {
 	background-color: var(--color-primary);
@@ -400,7 +400,6 @@ td {
 	width: 50px;
 	height: 50px;
 	text-align: center;
-	cursor: pointer;
 }
 
 th {
@@ -409,7 +408,6 @@ th {
 	height: 50px;
 	vertical-align: middle;
 	color: var(--color-white);
-	cursor: pointer;
 }
 
 table {
@@ -417,7 +415,7 @@ table {
 	border: 0.5px solid rgb(90, 87, 87);
 }
 
-/* ----------------------Form---------------------- */
+/*----------------------Form----------------------*/
 
 .password-reset {
 	border: solid 1px var(--color-light);
@@ -494,7 +492,7 @@ textarea {
 	max-height: 7rem;
 }
 
-/* ----------------------Task list---------------------- */
+/*----------------------Task list----------------------*/
 .task-list {
 	min-width: 450px;
 	border: solid 1px var(--color-light);
@@ -550,7 +548,7 @@ i.bi.bi-journal-text {
 	color: var(--color-primary);
 }
 
-/* ----------------------Task detail---------------------- */
+/*----------------------Task detail----------------------*/
 
 .task {
 	margin-bottom: auto;
@@ -625,8 +623,6 @@ i.bi.bi-journal-text {
 	gap: 1rem;
 }
 
-/* ----------------------Social Icons---------------------- */
-
 .social-icons a {
 	transition: all 0.3s;
 }
@@ -667,7 +663,7 @@ i.bi.bi-journal-text {
 }
 
 
-/* ----------------------Button---------------------- */
+/*----------------------Button----------------------*/
 .btn {
 	padding: 0.25rem 0.75rem;
 	border-radius: var(--border-radius);
@@ -724,7 +720,7 @@ i.bi.bi-journal-text {
 	color: var(--color-white);
 }
 
-/* ----------------------Alert---------------------- */
+/*----------------------Alert----------------------*/
 .alert {
 	padding: 0.25rem 0.75rem;
 	border-radius: 0.5rem;
@@ -750,7 +746,7 @@ i.bi.bi-journal-text {
 	color: var(--color-light);
 }
 
-/* ----------------------Utilities---------------------- */
+/*----------------------Utilities----------------------*/
 .underline-animation {
 	position: relative;
 }
@@ -798,7 +794,7 @@ i.bi.bi-journal-text {
 	justify-content: center;
 }
 
-/*----------------------Responsive layout---------------------------*/
+/*----------------------Responsive layout----------------------*/
 @media (max-width: 776px) {
 	.brand {
 		order: 1;

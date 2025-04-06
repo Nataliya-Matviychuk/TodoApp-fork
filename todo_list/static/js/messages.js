@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const alerts = document.querySelectorAll('.alert');
 
     alerts.forEach(alert => {
-        // Set a timeout to hide the alert after 5 seconds (5000ms)
+        // Set a timeout to hide the alert after 10 seconds (10000ms)
         setTimeout(() => {
             alert.style.transition = 'opacity 0.7s ease'; // Smooth fade-out effect
             alert.style.opacity = '0'; // Fade-out the alert
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Remove the alert from the DOM after the fade-out
             setTimeout(() => {
                 alert.remove();
-            }, 200);
-        }, 2000);
+            }, 500);
+        }, 10000); // Updated from 5000 to 10000
     });
 });

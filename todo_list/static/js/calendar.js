@@ -35,9 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const tableBody = document.createElement("tbody");
     const tableFooter = document.createElement("tfoot");
 
+    // Create the header row of the calendar and cells inside there
     const headerRow = document.createElement("tr");
-
-    // Create the header row of the calendar
     for (let i = 0; i < 7; i++) {
         let headerCell = document.createElement("th");
         headerCell.textContent = daysOfWeek[i];
@@ -47,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tableHeader.appendChild(headerRow);
     tableForMonth.appendChild(tableHeader);
 
-    // Create the body of the calendar
+    // Create the body of the calendar and rows inside there
     for (let i = 1; i <= 42; i++) {
         if (i % 7 === 1) {
             var bodyRow = document.createElement("tr");
@@ -66,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             // Calculate the number of days in the previous month
             let prevMonthDays = new Date(currentYear, currentMonth, 0).getDate();
-
+            // Condition to style a background of the last and a previous months
             if (i < firstDayOfMonth) {
                 bodyCell.textContent = prevMonthDays - (firstDayOfMonth - i - 1);
                 bodyCell.style.backgroundColor = "rgba(187, 233, 219, 0.5)";
