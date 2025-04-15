@@ -27,6 +27,7 @@ The following diagram illustrates the flow that allows a user to reset the passw
 - **CRUD** operations for task entities.
 - Dynamic **JavaScript** real time calendar.
 - Password recovery functionality via **django** buit-in class-based views.
+- AI LLM Model integration from [openrouter](https://openrouter.ai/) to implement simple chat. 
 - Test automations.
 
 
