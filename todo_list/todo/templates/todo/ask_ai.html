@@ -23,9 +23,7 @@
 
     <div class="ai-response">
       <h2><i class="bi bi-robot"></i> Chat Bot</h2>
-      {% if response %}
-        <iframe class="iframe" srcdoc="{{ response|escape }}"></iframe>
-      {% endif %}
+      <iframe class="iframe" srcdoc="<p style='font-family: Dosis, sans-serif; font-size: 14px'>{% if response%}{{ response|escape }}{% else %}Hello {{request.user}}👋{% endif %}</p>"></iframe>
     </div>
     
   </section>

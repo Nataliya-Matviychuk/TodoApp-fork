@@ -525,6 +525,10 @@ textarea {
 	border-radius: var(--border-radius);
 }
 
+.iframe-text {
+	font-family: Dosis, sans-serif;
+}
+
 /*----------------------Task list----------------------*/
 .task-list {
 	min-width: 450px;
