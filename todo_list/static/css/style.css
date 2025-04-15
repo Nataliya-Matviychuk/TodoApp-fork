@@ -352,6 +352,13 @@ nav li a:active {
 	margin-bottom: 30px;
 }
 
+.ai-feature {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	gap: 30px;
+}
+
 .feature-reverse {
 	flex-direction: row-reverse;
 }
@@ -363,6 +370,18 @@ nav li a:active {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	border: solid 1px var(--color-light);
+	box-shadow: var(--box-shadow);
+	border-radius: var(--border-radius);
+}
+
+.ai-response {
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 	border: solid 1px var(--color-light);
 	box-shadow: var(--box-shadow);
 	border-radius: var(--border-radius);
@@ -416,6 +435,12 @@ table {
 }
 
 /*----------------------Form----------------------*/
+
+.ai-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .password-reset {
 	border: solid 1px var(--color-light);
@@ -490,6 +515,14 @@ textarea:focus {
 
 textarea {
 	max-height: 7rem;
+}
+
+.iframe {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	border: solid 1px var(--color-gray);
+	border-radius: var(--border-radius);
 }
 
 /*----------------------Task list----------------------*/
@@ -795,6 +828,20 @@ i.bi.bi-journal-text {
 }
 
 /*----------------------Responsive layout----------------------*/
+@media (max-width: 845px) {
+	.ai-feature {
+		max-width: 400px;
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	.ai-response {
+		justify-content: start;
+		height: 238px;
+	}
+
+}
+
 @media (max-width: 776px) {
 	.brand {
 		order: 1;

@@ -4,13 +4,11 @@
   <div class="center">
     <form method="post" novalidate class="card">
       {% csrf_token %}
-      <h2>
-        {% if task %}
-           Update
-        {% else %}
-          Create
-        {% endif %}Task
-      </h2>
+      <div class="ai-heading">
+        <h2>{% if task %} Update {% else %} Create {% endif %} Task</h2>
+        <a href="{% url 'ask-ai' %}" class="underline-animation"><i class="bi bi-robot"></i> AI Help</a>
+      </div>
+
       {% for field in form %}
         {% if field.name == 'completed' %}
           <p>{{ field.label_tag }}
@@ -34,5 +32,7 @@
         <a href="{% url 'tasks' %}" class="btn btn-outline">Cancel</a>
       </div>
     </form>
+
   </div>
+
 {% endblock %}

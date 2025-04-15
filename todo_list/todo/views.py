@@ -3,14 +3,30 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.urls import reverse_lazy
 from .models import Task
+from .openrounter_utils import query_openrouter
 
 
 def home(request):
     return render(request, 'home.html')
 
+@login_required
+def ask_ai(request):
+    """
+	Handles the AI query and returns a response with the AI's answer.
+	This view processes POST requests containing a prompt, queries the AI using
+	the provided prompt, and returns the AI's response in JSON format.
+	"""
+    if request.method == 'POST':
+        prompt = request.POST["user_input"]
+        data = query_openrouter(prompt)
+        response = data["choices"][0]["message"]["content"]
+        return render(request, 'todo/ask_ai.html', {'response': response})
+    
+    return render(request, 'todo/ask_ai.html')
 
 class TaskList(LoginRequiredMixin, ListView):
     model = Task
@@ -87,4 +103,4 @@ class TaskDelete(LoginRequiredMixin, DeleteView):
     def get_queryset(self):
         base_qs = super(TaskDelete, self).get_queryset()
         return base_qs.filter(user=self.request.user)
-    
+
