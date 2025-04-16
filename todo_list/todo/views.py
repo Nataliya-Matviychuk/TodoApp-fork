@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -6,27 +6,59 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.urls import reverse_lazy
-from .models import Task
+from .models import Task, ChatWithAI
 from .openrounter_utils import query_openrouter
+from django.views import View
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
 
 def home(request):
     return render(request, 'home.html')
 
-@login_required
-def ask_ai(request):
+class AskAIView(LoginRequiredMixin, View):
     """
-	Handles the AI query and returns a response with the AI's answer.
-	This view processes POST requests containing a prompt, queries the AI using
-	the provided prompt, and returns the AI's response in JSON format.
-	"""
-    if request.method == 'POST':
+    Handles the AI query and returns a response with the AI's answer.
+    This view processes POST requests containing a prompt, queries the AI using
+    the provided prompt, and returns the AI's response in JSON format.
+    """
+
+    def get(self, request, *args, **kwargs):
+        chat_objects = ChatWithAI.objects.filter(user=request.user).order_by('created_at')
+        chat_history = [{'request': chat.request, 'response': chat.ai_response} for chat in chat_objects]
+        return render(request, 'todo/ask_ai.html', {"chat_history": chat_history})
+
+    def post(self, request, *args, **kwargs):
         prompt = request.POST["user_input"]
-        data = query_openrouter(prompt)
-        response = data["choices"][0]["message"]["content"]
-        return render(request, 'todo/ask_ai.html', {'response': response})
-    
-    return render(request, 'todo/ask_ai.html')
+        openrouter_ai_response = query_openrouter(prompt)
+        ai_message = openrouter_ai_response["choices"][0]["message"]["content"]
+
+        # Save the chat to the database
+        chat = ChatWithAI.objects.create(request=prompt, ai_response=ai_message, user=request.user, title=prompt[:15])
+        chat.save()
+
+        chat_objects = ChatWithAI.objects.filter(user=request.user).order_by('created_at')
+        chat_history = [{'request': chat.request, 'response': chat.ai_response} for chat in chat_objects]
+
+        return render(request, 'todo/ask_ai.html', {"chat_history": chat_history})
+
+class ChatDeleteView(LoginRequiredMixin, View):
+    """
+    Handles the deletion of chat entries for the authenticated user.
+    Ensures that users can only delete their own chat entries.
+    """
+
+    def post(self, request, *args, **kwargs):
+        chat = ChatWithAI.objects.filter(user=request.user)
+        if not chat.exists():
+            messages.error(request, 'No chat found to delete.')
+        else:
+            chat.delete()
+            messages.success(request, 'Chat deleted successfully.')
+        return HttpResponseRedirect(reverse_lazy('ask-ai'))
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'todo/chat_confirm_delete.html')
 
 class TaskList(LoginRequiredMixin, ListView):
     model = Task

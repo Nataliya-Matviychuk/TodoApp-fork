@@ -1,11 +1,13 @@
 from django.urls import path
 from .views import (
-    home, ask_ai,
+    home, 
     TaskList,
     TaskDetail,
     TaskCreate,
     TaskUpdate,
-    TaskDelete, 
+    TaskDelete,
+    AskAIView, 
+    ChatDeleteView,
 )
 
 urlpatterns = [
@@ -15,5 +17,6 @@ urlpatterns = [
     path('task/create/', TaskCreate.as_view(), name='task-create'),
     path('task/update/<int:pk>', TaskUpdate.as_view(), name='task-update'),
     path('task/delete/<int:pk>', TaskDelete.as_view(), name='task-delete'),
-    path('ask-ai/', ask_ai, name='ask-ai'),
+    path('ask-ai/', AskAIView.as_view(), name='ask-ai'),
+    path('delete-chat/', ChatDeleteView.as_view(), name='delete-chat'), 
 ]

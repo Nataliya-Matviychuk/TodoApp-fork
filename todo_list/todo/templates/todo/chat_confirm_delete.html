@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="center">
+    <form method="post" class="card">
+      {% csrf_token %}
+      <h2>Delete Chat</h2>
+      <p>Are you sure that you want to delete chat?</p>
+      <p class="form-buttons">
+        <input type="submit" value="Delete" class="btn btn-primary" />
+        <a href="{% url 'ask-ai' %}" class="btn btn-outline">Cancel</a>
+      </p>
+    </form>
+  </div>
+{% endblock %}

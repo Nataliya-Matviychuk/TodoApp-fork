@@ -21,11 +21,21 @@
       </div>
     </form>
 
-    <div class="ai-response">
-      <h2><i class="bi bi-robot"></i> Chat Bot</h2>
-      <iframe class="iframe" srcdoc="<p style='font-family: Dosis, sans-serif; font-size: 14px'>{% if response%}{{ response|escape }}{% else %}Hello {{request.user}}👋{% endif %}</p>"></iframe>
+    <div class="chat">
+      <div class="chat-heading">
+        <h2><i class="bi bi-robot"></i> Chat Bot</h2>
+        <a href="{% url 'delete-chat' %}" class="btn btn-primary">Clear Chat</a>
+      </div>
+      <iframe class="iframe" srcdoc="<p style='font-family: Dosis, sans-serif; font-size: 14px;'>
+        {% if chat_history %}
+          {% for message in chat_history %}
+            <p style='font-family: Dosis, sans-serif; font-size: 14px; color: #fff; background: #86b7fe; padding: 4px; border-radius: 3px; width: fit-content;'>{{message.request}}</p>
+            <p style='font-family: Dosis, sans-serif; font-size: 14px; color: #fff; background: #00cad1; padding: 4px; border-radius: 3px; width: fit-content; text-align: end;'>{{message.response}}</p>
+          {% endfor %}
+        {% else %}
+          Hello {{request.user}}👋
+        {% endif %}</p>"></iframe>
     </div>
-    
   </section>
 </div>
 

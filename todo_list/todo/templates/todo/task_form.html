@@ -6,7 +6,7 @@
       {% csrf_token %}
       <div class="ai-heading">
         <h2>{% if task %} Update {% else %} Create {% endif %} Task</h2>
-        <a href="{% url 'ask-ai' %}" class="underline-animation"><i class="bi bi-robot"></i> AI Help</a>
+        <a href="{% url 'ask-ai' %}" class="underline-animation" id="ai-link"><i class="bi bi-robot"></i> AI Help</a>
       </div>
 
       {% for field in form %}

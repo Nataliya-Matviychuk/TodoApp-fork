@@ -14,3 +14,22 @@ class Task(models.Model):
     class Meta:
         ordering = ['completed']
 
+class ChatWithAI(models.Model):
+    title = models.CharField(max_length=255, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    request = models.TextField()
+    ai_response = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        ordering = ['created_at']
+        verbose_name = "Chat with AI"
+        verbose_name_plural = "Chats with AI"
+    
+    
+    
+    
+    

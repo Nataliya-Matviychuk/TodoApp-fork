@@ -122,6 +122,11 @@ a:visited {
 	color: var(--color-primary);
 }
 
+.ai-link-overlaped {
+	z-index: -1;
+	transition: all 0.3s;
+}
+
 
 /*----------------------Header----------------------*/
 .header>.container {
@@ -375,7 +380,7 @@ nav li a:active {
 	border-radius: var(--border-radius);
 }
 
-.ai-response {
+.chat {
 	width: 100%;
 	padding: 1rem;
 	display: flex;
@@ -385,6 +390,13 @@ nav li a:active {
 	border: solid 1px var(--color-light);
 	box-shadow: var(--box-shadow);
 	border-radius: var(--border-radius);
+}
+
+.chat-heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
 }
 
 .feature-content .cta {
@@ -440,6 +452,8 @@ table {
     display: flex;
     justify-content: space-between;
     align-items: center;
+	width: 100%;
+	
 }
 
 .password-reset {
@@ -839,7 +853,7 @@ i.bi.bi-journal-text {
 		gap: 30px;
 	}
 
-	.ai-response {
+	.chat {
 		justify-content: start;
 		height: 238px;
 	}

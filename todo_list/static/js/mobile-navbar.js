@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav7 = document.querySelector("#nav-7");
     const navItems = [nav1, nav2, nav3, nav4, nav5, nav6, nav7];
 
+    const aiLink = document.querySelector("#ai-link");
+    console.log(aiLink);
+
     // Dark menu
     document.addEventListener("scroll", () => {
         if (window.scrollY > 1) {
@@ -50,15 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (overlay.classList.contains("overlay-active")) {
             // Animate In - Overlay
             overlay.classList.replace("overlay-slide-left", "overlay-slide-right");
-
+            
             // Animate In - Nav Items
             navAnimation("out", "in");
+
+            // Overlap AI Link
+            aiLink.classList.add("ai-link-overlaped");
         } else {
             // Animate Out - Overlay
             overlay.classList.replace("overlay-slide-right", "overlay-slide-left");
 
             // Animate Out - Nav Items
             navAnimation("in", "out");
+
+            // Unoverlap AI Link
+            aiLink.classList.remove("ai-link-overlaped");
         }
     }
 
