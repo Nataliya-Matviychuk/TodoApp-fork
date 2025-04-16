@@ -2,6 +2,7 @@
 [![Made with - django](https://img.shields.io/badge/Made_with-django-2ea44f?logo=django&logoColor=green)](https://www.djangoproject.com/start/)
 [![Made with - HTML](https://img.shields.io/static/v1?label=Made+with&message=HTML&color=orange&logo=html5&logoColor=orange)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![Made with - CSS](https://img.shields.io/static/v1?label=Made+with&message=CSS&color=blue&logo=CSS3&logoColor=blue)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![Made with - JavaScript](https://img.shields.io/static/v1?label=Made+with&message=JavaScript&color=yellow&logo=javascript&logoColor=yellow)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 **[TodoApp](http://todoapp-nazar2022.pythonanywhere.com/) is a notebook for your daily tasks.**
 
@@ -27,7 +28,7 @@ The following diagram illustrates the flow that allows a user to reset the passw
 - **CRUD** operations for task entities.
 - Dynamic **JavaScript** real time calendar.
 - Password recovery functionality via **django** buit-in class-based views.
-- AI LLM Model integration from [openrouter](https://openrouter.ai/) to implement simple chat. 
+- GPT AI Model integration from [openrouter](https://openrouter.ai/) to implement simple chat. 
 - Test automations.
 
 
