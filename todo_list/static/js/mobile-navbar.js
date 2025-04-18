@@ -19,8 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navItems = [nav1, nav2, nav3, nav4, nav5, nav6, nav7];
 
     const aiLink = document.querySelector("#ai-link");
-    console.log(aiLink);
-
+    
     // Dark menu
     document.addEventListener("scroll", () => {
         if (window.scrollY > 1) {
@@ -58,7 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
             navAnimation("out", "in");
 
             // Overlap AI Link
-            aiLink.classList.add("ai-link-overlaped");
+            if (aiLink) {
+                aiLink.classList.add("ai-link-overlaped");
+            } else {
+                console.warn("AI Link is on the other pages");
+            }
+            
         } else {
             // Animate Out - Overlay
             overlay.classList.replace("overlay-slide-right", "overlay-slide-left");
@@ -66,8 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Animate Out - Nav Items
             navAnimation("in", "out");
 
-            // Unoverlap AI Link
-            aiLink.classList.remove("ai-link-overlaped");
+            // Unoverlap AI Link 
+            if (aiLink) {
+                aiLink.classList.remove("ai-link-overlaped");
+            } else {
+                console.warn("AI Link is on the other pages ");
+            }
+           
         }
     }
 
@@ -79,5 +88,26 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.addEventListener("click", toggleNav);
         }
     });
+
+    // Close the menu when user change window orientation
+    function closeOverlayMenu(windowWidth) {
+        if (windowWidth.matches) { // If media query matches
+            hamburgerMenu.classList.remove("active");
+            overlay.classList.remove("overlay-active");
+            overlay.classList.replace("overlay-slide-right", "overlay-slide-left");
+            navAnimation("in", "out");
+        }
+        
+      }
+      
+      // Create a MediaQueryList object
+      var windowWidth = window.matchMedia("(min-width: 535px)")
+      // Call listener function at run time
+      closeOverlayMenu(windowWidth);
+      
+      // Attach listener function on state changes
+      windowWidth.addEventListener("change", function() {
+        closeOverlayMenu(windowWidth);
+      });
 
 });
